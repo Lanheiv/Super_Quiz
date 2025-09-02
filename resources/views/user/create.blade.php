@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Quiz login
+        Quiz SignIn
     </x-slot:title>
+
 </x-latout>
