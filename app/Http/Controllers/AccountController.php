@@ -13,3 +13,6 @@ class AccountController extends Controller
         return view("user.create");
     }
 }
+//public function store(){
+    //
+//}
