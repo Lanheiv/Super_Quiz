@@ -6,8 +6,8 @@
     <div id="login">
         <h1>Login</h1>
         <form action="/" method="POST">
-            <input type="text" name="username" placeholder="UserName">
-            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="username" placeholder="UserName" required>
+            <input type="password" name="password" placeholder="Password" required>
 
             <div class="button">
                 <input type="submit" value="Login">
