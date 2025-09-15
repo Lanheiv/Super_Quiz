@@ -5,7 +5,8 @@
 
     <div id="login">
         <h1>Login</h1>
-        <form action="/" method="POST">
+        <form action="/Login" method="POST">
+            @csrf
             <input type="text" name="username" placeholder="UserName">
             <input type="password" name="password" placeholder="Password">
 
@@ -16,4 +17,4 @@
         </form>
     </div>
 
-</x-latout>
+</x-layout>

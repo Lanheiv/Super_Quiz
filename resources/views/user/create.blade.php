@@ -3,4 +3,4 @@
         Quiz SignIn
     </x-slot:title>
 
-</x-latout>
+</x-layout>
