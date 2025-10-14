@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
+
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -12,7 +14,16 @@ class AccountController extends Controller
     public function create() {
         return view("user.create");
     }
+
+    public function store(Request $request) {
+        
+        
+        Account::create([
+            "username" => $request->username,
+            "password" => $request->password
+          ]);
+        
+        return redirect("/Login");
+    }
+
 }
-//public function store(){
-    //
-//}
