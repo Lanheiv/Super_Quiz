@@ -6,18 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('quiz_topic', function (Blueprint $table) {
             $table->id();
-            $table->string("username");
-            $table->string("password");
-            $table->boolean("admin")->default(0);
-            $table->timestamps();
+            $table->string("topic_name");
+            $table->string("category_id")->default(0);
         });
     }
+
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('quiz_topic');
     }
 };

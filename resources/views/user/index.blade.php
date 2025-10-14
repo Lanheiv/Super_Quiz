@@ -16,4 +16,4 @@
         </form>
     </div>
 
-</x-latout>
+</x-layout>
