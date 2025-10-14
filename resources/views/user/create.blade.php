@@ -20,5 +20,4 @@
         </form>
         </div>
     </div>
-
-</x-latout>
+</x-layout>
