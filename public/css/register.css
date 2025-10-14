@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(82, 82, 82)
+}
+
+.logcontainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px;
+}
+
+.loginform{
+    display: flex;
+    border-radius: 20px;
+    background-color: rgb(56, 56, 56);
+    width: 30%;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.input{
+    background-color: rgb(32, 32, 32);
+    border: 2px rgb(16, 16, 16);
+    height: 30px;
+    border-radius: 5px;
+}
+
+.button1{
+    margin: 5px;
+    background-color: rgb(156, 156, 156);
+    border: 2px rgb(16, 16, 16);
+    height: 30px;
+    border-radius: 5px;
+}
+
+h1 {
+    color: white;
+    justify-content: flex-start;
+}
