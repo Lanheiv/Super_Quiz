@@ -30,7 +30,7 @@ class SessionController extends Controller
          Auth::attempt($validated);
           if (!Auth::attempt($validated)) {
             throw ValidationException::withMessages([
-                "password" => "Nepareiza  parole"
+                "password" => "Nepareiza  parole!"
             ]);
         }
           $request->session()->regenerate();
