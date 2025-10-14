@@ -14,8 +14,8 @@
             <input type="password" name="password" placeholder="Password" class="input">
 
             <div class="button">
-                <input type="submit" value="SignUp" class="button1">
-                <input type="button" onclick="location.href='/Login'" value="Log in" class="button1">
+                <input type="submit" value="Sign Up" class="button1">
+                <input type="button" onclick="location.href='/login'" value="Login" class="button1">
             </div>
         </form>
         </div>

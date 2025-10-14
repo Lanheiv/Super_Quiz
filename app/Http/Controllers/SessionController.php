@@ -7,26 +7,11 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 class SessionController extends Controller
 {
-   
-    public function index()
-    {
-        return view("index");
-    }
-
-    public function create()
-    {
-        return view("user.create");
-    }
-
-    public function store(Request $request)
-    {
-         $validated = $request->validate([
+    public function store(Request $request) {
+        $validated = $request->validate([
             "username" => ["required", "name"],
             "password" => ["required", "confirmed", Password::min(6)->numbers()->letters()->symbols()]
         ]);
-
-
-
          Auth::attempt($validated);
           if (!Auth::attempt($validated)) {
             throw ValidationException::withMessages([
@@ -36,9 +21,7 @@ class SessionController extends Controller
           $request->session()->regenerate();
            return redirect("/");
     }
-
-    public function destroy(string $id)
-    {
+    public function destroy(string $id) {
        Auth::logout();
         return redirect("/");
     }

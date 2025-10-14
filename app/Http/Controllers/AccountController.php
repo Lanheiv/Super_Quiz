@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AccountController extends Controller
 {
     public function index() {
-        return view("index");
+        return view("user.login");
     }
     public function create() {
         return view("user.create");
@@ -23,7 +23,7 @@ class AccountController extends Controller
             "password" => $request->password
           ]);
         
-        return redirect("/Login");
+        return redirect("/login");
     }
 
 }
