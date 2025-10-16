@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
@@ -16,7 +15,7 @@ class SessionController extends Controller
     public function store(Request $request) {
         $validated = $request->validate([
             "username" => ["required", "string"],
-            "password" => ["required", Password::min(6)->numbers()->letters()]
+            "password" => ["required"]
         ]);
 
         Auth::attempt($validated); 
