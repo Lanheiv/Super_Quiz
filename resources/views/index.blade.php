@@ -1,7 +1,14 @@
 <x-layout>
     <x-slot:title>
-        Quiz
+        HomePage
     </x-slot:title>
+    
+    <div class="quizContainer">
+        <div class="quizBoard"></div>
+        <div class="quizBoard"></div>
+        <div class="quizBoard"></div>
+        <div class="quizBoard"></div>
+        <div class="quizBoard"></div>
+    </div>
 
-    <h1>Test</h1>
 </x-layout>

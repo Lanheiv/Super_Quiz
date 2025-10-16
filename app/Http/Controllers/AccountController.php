@@ -21,7 +21,6 @@ class AccountController extends Controller
             "password" => ["required", Password::min(6)->numbers()->letters()]
         ]);
         
-        
         Account::create([
             "username" => $validated["username"],
             "password" => Hash::make($validated["password"])
@@ -29,9 +28,4 @@ class AccountController extends Controller
         
         return redirect("/login");
     }
-
-    public function homePage() {
-        return view("user.homePage");
-    }
-
 }
