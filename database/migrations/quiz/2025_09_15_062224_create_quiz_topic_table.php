@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string("topic_name");
             $table->text("description");
-            $table->string("category_id")->default(0);
+            $table->integer("category_id")->default(0);
         });
     }
 

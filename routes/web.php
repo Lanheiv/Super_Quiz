@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\SessionController;
 
-Route::get('/', function () { return redirect('/login'); });
+Route::get('/', function () { return Auth::check() ? view('index') : redirect('/login'); });
 
-Route::get('/login', [AccountController::class, 'index']);
+Route::get('/login', [SessionController::class, 'login']);
 Route::post('/login', [SessionController::class, 'store']);
 
 Route::get('/signup', [AccountController::class, 'create']);

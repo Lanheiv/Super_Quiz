@@ -8,7 +8,7 @@
             <div class="loginform">
         <h1>SignUp</h1>
     
-        <form action="/SignUp" method="POST">
+        <form action="/signup" method="POST">
             @csrf
             <input type="text" name="username" placeholder="UserName" class="input">
             <input type="password" name="password" placeholder="Password" class="input">
