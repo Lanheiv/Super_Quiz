@@ -25,4 +25,5 @@ class SessionController extends Controller
        Auth::logout();
         return redirect("/");
     }
+
 }
