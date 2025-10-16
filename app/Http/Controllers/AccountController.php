@@ -30,4 +30,8 @@ class AccountController extends Controller
         return redirect("/login");
     }
 
+    public function homePage() {
+        return view("user.homePage");
+    }
+
 }
