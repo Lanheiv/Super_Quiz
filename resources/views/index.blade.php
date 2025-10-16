@@ -4,11 +4,9 @@
     </x-slot:title>
     
     <div class="quizContainer">
-        <div class="quizBoard"></div>
-        <div class="quizBoard"></div>
-        <div class="quizBoard"></div>
-        <div class="quizBoard"></div>
-        <div class="quizBoard"></div>
+    @foreach ($quizz as $quiz)
+      <div class="quizBoard"><a href="/quiz/{{ $quiz->id }}">{{ $quiz->quiz_topic }}</a></div>
+    @endforeach
     </div>
 
 </x-layout>
