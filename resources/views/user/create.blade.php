@@ -18,7 +18,6 @@
             <div class="button">
                 <input type="submit" value="Sign Up" class="button1">
                 <input type="button" onclick="location.href='/login'" value="Login" class="button2">
-                <input type="button" onclick="location.href='/homePage'" value="homePage">
             </div>
         </form>
         </div>
