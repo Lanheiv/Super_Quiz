@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Create Quiz
+        Edit user
     </x-slot:title>
 
 </x-layout>
