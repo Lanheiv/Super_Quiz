@@ -16,7 +16,8 @@ Route::get('/signup', [AccountController::class, 'create']);
 Route::post('/signup', [AccountController::class, 'store']);
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/users', [AdminController::class, 'edituser']);
-    
-    Route::get('/admin/quiz', [AdminController::class, 'editquiz']);
+    Route::get('/admin/quiz', [AdminController::class, 'editquiz_index']);
+
+    Route::get('/admin/users', [AdminController::class, 'edituser_index']);
+    Route::match(['get','post'], '/admin/users/{id}', [AdminController::class, 'edituser_edit']);
 });

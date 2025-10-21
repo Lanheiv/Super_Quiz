@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Account;
 
-use App\Models\QuizTopic;
+class test extends Controller
 
-class AdminController extends Controller
 {
-    public function edituser_index() {
-        $users = Account::all();
-        return view('admin.users_list', compact('users'));
-    }
-    public function edituser_edit(Request $request, $id) {
+    public function index()
+{
+    $users = Account::all();
+    return view('admin.users_list', compact('users'));
+}
+
+    public function edit(Request $request, $id)
+    {
         $user = Account::findOrFail($id);
 
         if ($request->isMethod('post')) {
@@ -25,14 +27,10 @@ class AdminController extends Controller
 
             if ($request->has('delete_user')) {
                 $user->delete();
-                return redirect('/admin/users')->with('success', 'Lietotājs izdzēsts!');
+                return redirect('/')->with('success', 'Lietotājs izdzēsts!');
             }
         }
-    }
 
-    public function editquiz_index() {
-        $QuizTopic = QuizTopic::all();
-
-        return view("admin.edit_quiz", ["QuizTopic" => $QuizTopic]);
+        return view('admin.edit', compact('user'));
     }
 }
