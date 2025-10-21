@@ -3,10 +3,16 @@
         HomePage
     </x-slot:title>
     
-    <div class="quizContainer">
+<div class="quizContainer">
     @foreach ($quizz as $quiz)
-      <div class="quizBoard"><a href="/quiz/{{ $quiz->id }}">{{ $quiz->quiz_topic }}</a></div>
+        <div class="quizBoard">
+            <form method="GET" action="/quiz/{{ $quiz->id }}">
+                <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
+                <div>{{ $quiz->topic_name }}</div>
+                <button type="submit">Skatīt</button>
+            </form>
+        </div>
     @endforeach
-    </div>
+</div>
 
 </x-layout>

@@ -1,16 +1,17 @@
 <?php
-
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\SessionController;
+Route::get('/', function() { return redirect("/login"); })->middleware('guest');
+Route::get('/', [QuizController::class, 'index'])->middleware('auth');
 
-Route::get('/', function () { return Auth::check() ? view('index') : redirect('/login'); });
+Route::get('/quiz/{quiz}', [QuizController::class, 'show']);
 
-Route::get('/login', [SessionController::class, 'login']);
+Route::get('/login', [SessionController::class, 'login'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);
 
 Route::get('/signup', [AccountController::class, 'create']);
 Route::post('/signup', [AccountController::class, 'store']);
 
-Route::get('/auth', [AccountController::class, 'auth'])->middleware('auth.session');
