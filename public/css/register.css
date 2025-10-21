@@ -106,3 +106,15 @@ h1 {
   height: 500px;
   box-shadow: 5px 5px 5px rgba(47, 47, 47, 0.798);
 }
+
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionBoard {
+    background-color: rgb(56, 56, 56);
+    border-radius: 5px;
+    color: white;
+    height: 400px;
+}
