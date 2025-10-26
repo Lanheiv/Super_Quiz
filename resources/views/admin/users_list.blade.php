@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        User list
+        Edit user
     </x-slot:title>
 
     <h2>Lietotāju saraksts</h2>
