@@ -2,6 +2,7 @@
     <x-slot:title>
         Edit user
     </x-slot:title>
+    <x-nav />
 
     <h2>Lietotāju saraksts</h2>
 

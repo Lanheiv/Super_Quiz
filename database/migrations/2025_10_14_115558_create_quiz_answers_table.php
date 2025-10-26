@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('quiz_answers', function (Blueprint $table) {
             $table->id();
+            $table->integer("topic_id");
             $table->integer("question_id");
             $table->string("answer");
             $table->boolean("is_it_correct")->default(0);

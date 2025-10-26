@@ -19,12 +19,15 @@ Route::post('/signup', [AccountController::class, 'store']);
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/quiz', [AdminController::class, 'editquiz_index']);
+    Route::get('/admin/quiz', [AdminController::class, 'quiz_index']);
+    Route::post('/admin/delete/quiz/{id}', [AdminController::class, 'quiz_destroy']);
 
-    Route::get('/admin/users', [AdminController::class, 'edituser_index']);
-    Route::match(['get','post'], '/admin/users/{id}', [AdminController::class, 'edituser_edit']);
+    Route::get('/admin/create/quiz', [AdminController::class, 'quiz_create']);
+    Route::post('/admin/create/quiz', [AdminController::class, 'quiz_store']);
+
+    Route::get('/admin/users', [AdminController::class, 'user_index']);
+    Route::match(['get','post'], '/admin/users/{id}', [AdminController::class, 'user_edit']);
 });
-
 Route::middleware('auth')->group(function () {
     Route::get('/account', [AccountController::class, 'show']); 
     Route::post('/account/logout', [AccountController::class, 'logout']);

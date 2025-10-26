@@ -108,6 +108,7 @@ $quizData = [
 
                 foreach ($q['answers'] as $index => $answer) {
                     QuizAnswer::create([
+                        'topic_id' => $topic->id,
                         'question_id' => $question->id,
                         'answer' => $answer,
                         'is_it_correct' => $index === $q['correct'],
