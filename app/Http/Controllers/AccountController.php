@@ -28,4 +28,33 @@ class AccountController extends Controller
         
         return redirect("/login");
     }
+
+    
+    public function show()
+{
+    $user = Auth::user();
+    return view('account.show', compact('user'));
+}
+
+public function logout(Request $request)
+{
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/login')->with('success', 'Jūs esat izrakstījies!');
+}
+
+public function destroy(Request $request)
+{
+    $user = Auth::user();
+    Auth::logout();
+    $user->delete();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/signup')->with('success', 'Jūsu konts ir dzēsts!');
+}
+
 }

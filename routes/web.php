@@ -17,9 +17,17 @@ Route::post('/login', [SessionController::class, 'store']);
 Route::get('/signup', [AccountController::class, 'create']);
 Route::post('/signup', [AccountController::class, 'store']);
 
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/quiz', [AdminController::class, 'editquiz_index']);
 
     Route::get('/admin/users', [AdminController::class, 'edituser_index']);
     Route::match(['get','post'], '/admin/users/{id}', [AdminController::class, 'edituser_edit']);
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/account', [AccountController::class, 'show']); 
+    Route::post('/account/logout', [AccountController::class, 'logout']);
+    Route::post('/account/delete', [AccountController::class, 'destroy']); 
+});
+
