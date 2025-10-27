@@ -14,7 +14,9 @@ class QuizResult extends Model
     protected $fillable = [
         'user_id',
         'topic_id',
-        'time',
+        'result',
+        'question_numbers',
+        'complet_time',
     ];
 
     public function topic()

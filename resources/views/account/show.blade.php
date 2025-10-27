@@ -2,8 +2,27 @@
     <x-slot:title>
         Mans konts
     </x-slot:title>
+    <x-nav />
 
     <h2>Mans konts</h2>
+
+    <div>
+        <h3>Izpildīto testu saraksts</h3>
+
+        @foreach($test_results as $result)
+            <p>
+                Temats: {{ $result->topic->topic_name ?? 'Nezināms' }} <br>
+                Rezultāts: {{ $result->result }} / {{ $result->question_numbers }} <br>
+                Laiks: 
+                @php
+                    $minutes = floor($result->complet_time / 60);
+                    $seconds = $result->complet_time % 60;
+                @endphp
+                {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }} min
+            </p>
+        @endforeach
+    </div>
+
 
     <p><strong>Lietotājvārds:</strong> {{ $user->username }}</p>
     <p><strong>Statuss:</strong> {{ $user->admin ? 'Administrators' : 'Parasts lietotājs' }}</p>

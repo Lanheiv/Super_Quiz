@@ -12,7 +12,7 @@ use App\Models\QuizAnswer;
 class AdminController extends Controller
 {
     public function user_index() {
-        $users = Account::all();
+        $users = Account::all(); 
         return view('admin.list_users', compact('users'));
     }
     public function user_edit(Request $request, $id) {

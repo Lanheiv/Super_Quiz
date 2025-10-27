@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\QuizResult;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
+
+
 
 class AccountController extends Controller
 {
@@ -28,33 +31,29 @@ class AccountController extends Controller
         
         return redirect("/login");
     }
+    public function show() {
+        $user = Auth::user();
+        $test_results = QuizResult::where('user_id', Auth::id())->get();
 
-    
-    public function show()
-{
-    $user = Auth::user();
-    return view('account.show', compact('user'));
-}
+        return view('account.show', compact('user', 'test_results'));
+    }
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-public function logout(Request $request)
-{
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+        return redirect('/login');
+    }
+    public function destroy(Request $request) {
+        QuizResult::where('user_id', Auth::id())->delete();
 
-    return redirect('/login')->with('success', 'Jūs esat izrakstījies!');
-}
+        $user = Auth::user();
+        Auth::logout();
+        $user->delete();
 
-public function destroy(Request $request)
-{
-    $user = Auth::user();
-    Auth::logout();
-    $user->delete();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-
-    return redirect('/signup')->with('success', 'Jūsu konts ir dzēsts!');
-}
-
+        return redirect('/signup');
+    }
 }

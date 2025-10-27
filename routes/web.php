@@ -37,6 +37,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/account', [AccountController::class, 'show']); 
     Route::post('/account/logout', [AccountController::class, 'logout']);
-    Route::post('/account/delete', [AccountController::class, 'destroy']); 
+    Route::post('/account/delete', [AccountController::class, 'destroy']);
+
+    Route::post('/quiz/start', [QuizController::class, 'start']); 
+    Route::get('/quiz/{topicId}/start', [QuizController::class, 'play']);
+    Route::post('/quiz/{topicId}/answer', [QuizController::class, 'answer']);
 });
+
 

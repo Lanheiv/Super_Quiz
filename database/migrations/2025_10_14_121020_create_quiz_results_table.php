@@ -12,7 +12,9 @@ return new class extends Migration
             $table->id();
             $table->integer("user_id");
             $table->integer("topic_id");
-            $table->integer('time')->nullable();
+            $table->integer("result");
+            $table->integer("question_numbers");
+            $table->integer('complet_time');
             $table->timestamps();
         });
     }
