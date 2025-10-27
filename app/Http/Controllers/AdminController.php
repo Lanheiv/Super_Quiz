@@ -33,9 +33,9 @@ class AdminController extends Controller
     }
 
     public function quiz_index() {
-        $QuizTopic = QuizTopic::all();
+        $quiz = QuizTopic::all();
 
-        return view("admin.list_quiz", ["QuizTopic" => $QuizTopic]);
+        return view("admin.list_quiz", compact('quiz'));
     }
     public function quiz_create () {
         return view("admin.create_quiz");

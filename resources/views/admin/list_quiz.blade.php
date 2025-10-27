@@ -21,7 +21,7 @@
         </thead>
 
         <tbody>
-            @foreach($QuizTopic as $topic)
+            @foreach($quiz as $topic)
             <tr>
                 <td>{{ $topic->id }}</td>
                 <td>{{ $topic->topic_name }}</td>
@@ -32,7 +32,7 @@
                         <button type="submit" name="delete_quiz">Pārvaldīt jautājumus</button>
                     </form>
 
-                    <form action="/admin/delete/question/{{$question->topic_id}}/{{$question->id}}" method="POST" style="display:inline;" onsubmit="return confirm('Vai tiešām dzēst šo jautājumu?');">
+                    <form action="/admin/delete/quiz/{{$topic->id}}" method="POST" style="display:inline;" onsubmit="return confirm('Vai tiešām dzēst šo jautājumu?');">
                         @csrf
                         <button type="submit">Dzēst</button>
                     </form>
