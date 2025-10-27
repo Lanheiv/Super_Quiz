@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Edit quiz
+        List quiz
     </x-slot:title>
     <x-nav />
 
@@ -16,7 +16,7 @@
                 <th>Id</th>
                 <th>Quiz nosaukums</th>
                 <th>Apraksts</th>
-                <th>Darbība</th>
+                <th>Darbības</th>
             </tr>
         </thead>
 
@@ -27,9 +27,14 @@
                 <td>{{ $topic->topic_name }}</td>
                 <td>{{ $topic->description }}</td>
                 <td>
-                    <form action="/admin/delete/quiz/{{ $topic->id }}" method="POST" style="display:inline;" onsubmit="return confirm('Vai tiešām dzēst šo lietotāju?');">
+                    <form action="/admin/questions/{{ $topic->id }}" method="GET" style="display:inline;">
                         @csrf
-                        <button type="submit" name="delete_quiz">Dzēst</button>
+                        <button type="submit" name="delete_quiz">Pārvaldīt jautājumus</button>
+                    </form>
+
+                    <form action="/admin/delete/question/{{$question->topic_id}}/{{$question->id}}" method="POST" style="display:inline;" onsubmit="return confirm('Vai tiešām dzēst šo jautājumu?');">
+                        @csrf
+                        <button type="submit">Dzēst</button>
                     </form>
                 </td>
             </tr>

@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Edit user
+        List user
     </x-slot:title>
     <x-nav />
 

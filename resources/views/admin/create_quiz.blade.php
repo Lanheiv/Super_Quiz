@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Quiz create
+        Create quiz
     </x-slot:title>
     <x-nav />
 
@@ -11,16 +11,15 @@
         
         <div>
             Quiz nosaukums:
-            <input type="text" require>
+            <input type="text" name="topic_name" require>
         </div>
 
         <div>
             Quiz Apraksts:
-            <textarea require></textarea>
+            <textarea name="topic_name" require></textarea>
         </div>
 
-        <input type="submit" value="izveidot quiz">
-        
+        <input type="submit" name="description" value="izveidot quiz">
     </form>
 
 </x-layout>

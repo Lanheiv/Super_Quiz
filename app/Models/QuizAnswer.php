@@ -13,6 +13,7 @@ class QuizAnswer extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'topic_id',
         'question_id',
         'answer',
         'is_it_correct',

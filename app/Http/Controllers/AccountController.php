@@ -24,7 +24,7 @@ class AccountController extends Controller
         Account::create([
             "username" => $validated["username"],
             "password" => Hash::make($validated["password"])
-          ]);
+        ]);
         
         return redirect("/login");
     }
