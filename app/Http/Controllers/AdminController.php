@@ -95,6 +95,43 @@ class AdminController extends Controller
 
         return redirect("/admin/questions/$id");
     }
+    public function question_edit($id) {
+        $question = QuizQuestion::findOrFail($id);
+        $answers = QuizAnswer::where('question_id', $id)->get();
+
+        return view("admin.edit_questions", compact('question', 'answers'));
+    }
+    public function question_update(Request $request, $id) {
+        $validated = $request->validate([
+            'question' => 'required|string|max:255',
+            'answers' => 'required|array|min:4|max:4',
+            'answers.*' => 'required|string|max:255',
+            'correct_answer' => 'required|integer|min:0|max:3',
+        ]);
+
+        $question = QuizQuestion::findOrFail($id);
+        $question->question = $validated['question'];
+        $question->save();
+
+        $answers = QuizAnswer::where('question_id', $id)->orderBy('id')->get();
+
+        foreach ($validated['answers'] as $index => $answerText) {
+            if (isset($answers[$index])) {
+                $answers[$index]->answer = $answerText;
+                $answers[$index]->is_it_correct = ($index == $validated['correct_answer']);
+                $answers[$index]->save();
+            } else {
+                QuizAnswer::create([
+                    'topic_id' => $question->topic_id,
+                    'question_id' => $id,
+                    'answer' => $answerText,
+                    'is_it_correct' => ($index == $validated['correct_answer']),
+                ]);
+            }
+        }
+
+        return redirect("/admin/questions/{$question->topic_id}");
+    }
     public function question_destroy($quizId, $questionId) {
         QuizAnswer::where('question_id', $questionId)->delete();
         QuizQuestion::where('id', $questionId)->delete();

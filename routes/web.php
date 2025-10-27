@@ -27,6 +27,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/questions/{id}', [AdminController::class, 'question_index']);
     Route::get('/admin/create/question/{id}', [AdminController::class, 'question_create']);
     Route::post('/admin/create/question/{id}', [AdminController::class, 'question_store']);
+    Route::get('/admin/edit/question/{id}', [AdminController::class, 'question_edit']);
+    Route::post('/admin/edit/question/{id}', [AdminController::class, 'question_update']);
     Route::post('/admin/delete/question/{quizId}/{questionId}', [AdminController::class, 'question_destroy']);
 
     Route::get('/admin/users', [AdminController::class, 'user_index']);

@@ -39,7 +39,7 @@
                 <td>{{ $answer_list[3]->answer ?? '' }}</td>
 
                 <td>
-                    <form action="/admin/edit/question/{{$question->id}}" method="POST" style="display:inline;">
+                    <form action="/admin/edit/question/{{$question->id}}" method="GET" style="display:inline;">
                         @csrf
                         <button type="submit" name="edit_question">Rediģēt</button>
                     </form>
