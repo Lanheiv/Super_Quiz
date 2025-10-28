@@ -18,7 +18,8 @@
                     $minutes = floor($result->complet_time / 60);
                     $seconds = $result->complet_time % 60;
                 @endphp
-                {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }} min
+                {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }} min <br>
+                Izpildes datums {{ $result['created_at'] }}
             </p>
         @endforeach
     </div>

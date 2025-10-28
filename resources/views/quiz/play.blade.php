@@ -5,8 +5,8 @@
 
     <h2>{{ $question->question }}</h2>
 
-    <div style="background:#eee; border-radius:5px; overflow:hidden; width:100%; height:20px;">
-        <div style="width:{{ $progress }}%; background:green; height:100%;"></div>
+    <div style="background:#383838; border-radius:5px; overflow:hidden; width:90%; height:20px;">
+        <div style="width:{{ $progress }}%; background:blue; height:100%;"></div>
     </div>
 
     <form action="/quiz/{{ $topicId }}/answer" method="POST">
